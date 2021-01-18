@@ -190,7 +190,7 @@ bin/console system:status general
 
 #### API
 Формат обращения:
-[host]/system/status/[component_name]?apiKey=[apiKey]
+[host]/system/status/[component_name]?api_key=[apiKey]
 
 Формат возвращаемой информации, пример:
 ```json
