@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace SystemStatusBundle\Entity;
+namespace Wakeapp\Bundle\SystemStatusBundle\Entity;
 
-use Domain\Model\BaseEntity;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
 
 /**
  * @ORM\Entity
@@ -16,8 +16,10 @@ use Doctrine\ORM\Mapping as ORM;
  *     }
  * )
  */
-class SystemStatus extends BaseEntity
+class SystemStatus
 {
+    use TimestampableEntity;
+
     /**
      * @var string
      *

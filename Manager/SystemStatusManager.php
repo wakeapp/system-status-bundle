@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace SystemStatusBundle\Manager;
+namespace Wakeapp\Bundle\SystemStatusBundle\Manager;
 
-use SystemStatusBundle\Enum\SystemStateEnum;
+use Wakeapp\Bundle\SystemStatusBundle\Enum\SystemStateEnum;
 use Wakeapp\Bundle\DbalBundle\Exception\WriteDbalException;
 use Wakeapp\Bundle\DbalBundle\Manager\DbalManager;
 

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace SystemStatusBundle\Dto;
+namespace Wakeapp\Bundle\SystemStatusBundle\Dto;
 
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Wakeapp\Component\DtoResolver\Dto\DtoResolverInterface;

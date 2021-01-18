@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace SystemStatusBundle;
+namespace Wakeapp\Bundle\Wakeapp\Bundle\SystemStatusBundle;
 
-use SystemStatusBundle\DependencyInjection\SystemStatusPartProviderCompilerPass;
-use SystemStatusBundle\DependencyInjection\SystemStatusProviderCompilerPass;
+use Wakeapp\Bundle\SystemStatusBundle\DependencyInjection\SystemStatusPartProviderCompilerPass;
+use Wakeapp\Bundle\SystemStatusBundle\DependencyInjection\SystemStatusProviderCompilerPass;
 use Symfony\Component\DependencyInjection\Compiler\PassConfig;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class SystemStatusBundle extends Bundle
+class Wakeapp\Bundle\SystemStatusBundle extends Bundle
 {
     /**
      * @param ContainerBuilder $container

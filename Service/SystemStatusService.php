@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace SystemStatusBundle\Service;
+namespace Wakeapp\Bundle\SystemStatusBundle\Service;
 
-use SystemStatusBundle\Behaviour\SystemStatusProviderInterface;
-use SystemStatusBundle\Enum\SystemStateEnum;
-use SystemStatusBundle\Manager\SystemStatusManager;
+use Wakeapp\Bundle\SystemStatusBundle\Behaviour\SystemStatusProviderInterface;
+use Wakeapp\Bundle\SystemStatusBundle\Enum\SystemStateEnum;
+use Wakeapp\Bundle\SystemStatusBundle\Manager\SystemStatusManager;
 use RuntimeException;
 use Wakeapp\Bundle\DbalBundle\Exception\WriteDbalException;
 

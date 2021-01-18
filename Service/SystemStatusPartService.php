@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace SystemStatusBundle\Service;
+namespace Wakeapp\Bundle\SystemStatusBundle\Service;
 
-use SystemStatusBundle\Behaviour\SystemStatusPartProviderInterface;
+use Wakeapp\Bundle\SystemStatusBundle\Behaviour\SystemStatusPartProviderInterface;
 use RuntimeException;
 
 class SystemStatusPartService

@@ -1,5 +1,5 @@
 services:
-  SystemStatusBundle\:
+  Wakeapp\Bundle\SystemStatusBundle\:
     autoconfigure: true
     autowire: true
     resource: '../../'

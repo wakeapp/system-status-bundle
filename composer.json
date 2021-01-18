@@ -1,0 +1,23 @@
+{
+    "name": "wakeapp/system-status-bundle",
+    "description": "symfony bundle provides interfaces, commands, entities for track system healthcheck",
+    "type": "symfony-bundle",
+    "require": {
+        "php": "^7.4",
+        "wakeapp/enumer": "^1.0",
+        "symfony/http-kernel": "^5.2",
+        "symfony/dependency-injection": "^5.2",
+        "wakeapp/dto-resolver": "^1.1",
+        "symfony/console": "^5.2",
+        "wakeapp/dbal-enum-type": "^1.0",
+        "wakeapp/enumer-bundle": "^1.2",
+        "doctrine/orm": "^2.8",
+        "gedmo/doctrine-extensions": "^3.0"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Wakeapp\\Bundle\\SystemStatusBundle": ""
+        }
+    }
+}

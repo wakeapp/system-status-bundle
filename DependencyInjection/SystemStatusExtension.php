@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace SystemStatusBundle\DependencyInjection;
+namespace Wakeapp\Bundle\SystemStatusBundle\DependencyInjection;
 
-use SystemStatusBundle\Behaviour\SystemStatusPartProviderInterface;
-use SystemStatusBundle\Behaviour\SystemStatusProviderInterface;
+use Wakeapp\Bundle\SystemStatusBundle\Behaviour\SystemStatusPartProviderInterface;
+use Wakeapp\Bundle\SystemStatusBundle\Behaviour\SystemStatusProviderInterface;
 use Exception;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace SystemStatusBundle\Factory;
+namespace Wakeapp\Bundle\SystemStatusBundle\Factory;
 
-use SystemStatusBundle\Dto\SystemStatusDto;
-use SystemStatusBundle\Service\SystemStatusService;
+use Wakeapp\Bundle\SystemStatusBundle\Dto\SystemStatusDto;
+use Wakeapp\Bundle\SystemStatusBundle\Service\SystemStatusService;
 use RuntimeException;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\OptionsResolver\Exception\ExceptionInterface;

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace SystemStatusBundle\Command;
+namespace Wakeapp\Bundle\SystemStatusBundle\Command;
 
-use SystemStatusBundle\Factory\DtoFactory;
-use SystemStatusBundle\Service\SystemStatusService;
+use Wakeapp\Bundle\SystemStatusBundle\Factory\DtoFactory;
+use Wakeapp\Bundle\SystemStatusBundle\Service\SystemStatusService;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;

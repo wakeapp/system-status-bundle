@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace SystemStatusBundle\DependencyInjection;
+namespace Wakeapp\Bundle\SystemStatusBundle\DependencyInjection;
 
 use Exception;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use SystemStatusBundle\Service\SystemStatusService;
+use Wakeapp\Bundle\SystemStatusBundle\Service\SystemStatusService;
 
 class SystemStatusProviderCompilerPass implements CompilerPassInterface
 {

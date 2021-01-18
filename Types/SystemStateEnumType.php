@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace SystemStatusBundle\Types;
+namespace Wakeapp\Bundle\SystemStatusBundle\Types;
 
-use SystemStatusBundle\Enum\SystemStateEnum;
+use Wakeapp\Bundle\SystemStatusBundle\Enum\SystemStateEnum;
 use Wakeapp\Component\DbalEnumType\Type\AbstractEnumType;
 
 class SystemStateEnumType extends AbstractEnumType

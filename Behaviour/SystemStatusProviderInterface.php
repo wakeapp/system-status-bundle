@@ -1,6 +1,6 @@
 <?php
 
-namespace SystemStatusBundle\Behaviour;
+namespace Wakeapp\Bundle\SystemStatusBundle\Behaviour;
 
 interface SystemStatusProviderInterface
 {

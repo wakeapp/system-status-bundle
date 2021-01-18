@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace SystemStatusBundle\Enum;
+namespace Wakeapp\Bundle\SystemStatusBundle\Enum;
 
 use Wakeapp\Bundle\EnumerBundle\Enum\EnumInterface;
 
