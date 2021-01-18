@@ -18,11 +18,12 @@
 
 ### Шаг 2: Подключение бандла
 
-После включите бандл добавив его в список зарегистрированных бандлов в `app/AppKernel.php` файл вашего проекта:
+После включите бандл добавив его в список зарегистрированных бандлов в `Kernel.php` файл вашего проекта:
 
 ```php
-<?php declare(strict_types=1);
-// app/AppKernel.php
+<?php 
+
+declare(strict_types=1);
 
 class AppKernel extends Kernel
 {
@@ -47,7 +48,7 @@ class AppKernel extends Kernel
 -------------
 
 Чтобы начать пользоваться бандлом, необходимо реализовать два интерфейса [SystemStatusProviderInterface](./Behaviour/SystemStatusProviderInterface) и [SystemStatusPartProviderInterface](./Behaviour/SystemStatusPartProviderInterface). 
-####SystemStatusProviderInterface 
+#### SystemStatusProviderInterface
 группа компонентов объединненых какой то общей целью (на усмотрение пользователя бандла).
 ```php
 <?php
@@ -101,7 +102,7 @@ class GeneralSystemMonitoringProvider implements SystemStatusProviderInterface
     }
 }
 ```
-####SystemStatusPartProviderInterface  
+#### SystemStatusPartProviderInterface
 элемент группы компонентов `SystemStatusProviderInterface`, реализующий непосредственно логику сбора сведений о компоненте, например сервер:
 ```php
 <?php
