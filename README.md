@@ -192,8 +192,22 @@ bin/console system:status general
 Формат обращения:
 [host]/system/status/[component_name]?apiKey=[apiKey]
 
-Формат возвращаемой информации:
-
+Формат возвращаемой информации, пример:
+```json
+{
+    "fineScore": "100",
+    "currentScore": "50",
+    "currentState": "great",
+    "component": "general",
+    "parts": {
+        "nginx.availability": {
+            "completeScore": "10",
+            "currentScore": "10",
+            "partType": "nginx.availability"
+        }
+    }
+}
+```
 
 Лицензия
 --------
