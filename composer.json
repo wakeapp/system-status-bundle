@@ -7,7 +7,7 @@
         "wakeapp/enumer": "^1.0",
         "wakeapp/dbal-enum-type": "^1.0",
         "wakeapp/dbal-bundle": "^2.0",
-        "wakeapp/enumer-bundle": "^1.2",
+        "wakeapp/enumer-bundle": "^1.0",
         "wakeapp/dto-resolver": "^1.1",
         "symfony/http-kernel": "^5.2",
         "symfony/dependency-injection": "^5.2",
