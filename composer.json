@@ -12,7 +12,7 @@
         "symfony/http-kernel": "^5.2",
         "symfony/dependency-injection": "^5.2",
         "symfony/console": "^5.2",
-        "gedmo/doctrine-extensions": "^3.0",
+        "gedmo/doctrine-extensions": "^2.4",
         "symfony/config": "^5.2"
     },
     "repositories": [
