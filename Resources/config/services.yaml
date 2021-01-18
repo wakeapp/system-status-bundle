@@ -10,3 +10,7 @@ services:
     public: true
     arguments:
       - '%system_status.api_key%'
+
+  Wakeapp\Bundle\SystemStatusBundle\Service\SystemStatusPartService: ~
+
+  Wakeapp\Bundle\SystemStatusBundle\Service\SystemStatusService: ~
