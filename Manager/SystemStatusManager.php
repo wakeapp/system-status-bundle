@@ -7,7 +7,7 @@ namespace Wakeapp\Bundle\SystemStatusBundle\Manager;
 use Wakeapp\Bundle\DbalBundle\Exception\WriteDbalException;
 use Wakeapp\Bundle\DbalBundle\Manager\DbalManager;
 
-class SystemStatusManager extends DbalManager
+final class SystemStatusManager extends DbalManager
 {
     /**
      * @param string $component
