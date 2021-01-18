@@ -16,5 +16,5 @@ services:
   Wakeapp\Bundle\SystemStatusBundle\Service\SystemStatusService:
     autowire: true
 
-  Wakeapp\Bundle\SystemStatusBundle\Service\SystemStatusPartServicet:
+  Wakeapp\Bundle\SystemStatusBundle\Service\SystemStatusPartService:
     autowire: true
