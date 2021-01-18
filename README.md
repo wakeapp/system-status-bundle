@@ -53,6 +53,12 @@ system_status:
     api_key: '%env(SYSTEM_STATUS_KEY)%'
 ```
 
+Зарегистрировать апи роуты:
+```yaml
+  system_status_bundle:
+    resource: '@SystemStatusBundle/Resources/config/routes.yaml'
+```
+
 Использование
 -------------
 
