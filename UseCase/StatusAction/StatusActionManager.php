@@ -53,6 +53,12 @@ final class StatusActionManager extends DbalManager
 
         $row = $stmt->fetch();
 
+        if ($row === false) {
+            return [
+                'component' => $component
+            ];
+        }
+
         $stmt->closeCursor();
 
         return $row;

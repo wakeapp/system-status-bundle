@@ -17,8 +17,7 @@ class SystemStatusConfiguration implements ConfigurationInterface
         $rootNode
             ->children()
                 ->scalarNode('api_key')
-                    ->cannotBeEmpty()
-                    ->isRequired()
+                    ->example('secret_key')
                 ->end()
             ->end()
         ;
