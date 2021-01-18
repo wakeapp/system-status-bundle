@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Wakeapp\Bundle\Wakeapp\Bundle\SystemStatusBundle;
+namespace Wakeapp\Bundle\SystemStatusBundle;
 
 use Wakeapp\Bundle\SystemStatusBundle\DependencyInjection\SystemStatusPartProviderCompilerPass;
 use Wakeapp\Bundle\SystemStatusBundle\DependencyInjection\SystemStatusProviderCompilerPass;
