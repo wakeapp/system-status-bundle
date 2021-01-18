@@ -12,12 +12,19 @@
         "wakeapp/dbal-enum-type": "^1.0",
         "wakeapp/enumer-bundle": "^1.2",
         "doctrine/orm": "^2.8",
-        "gedmo/doctrine-extensions": "^3.0"
+        "gedmo/doctrine-extensions": "^3.0",
+        "wakeapp/dbal-bundle": "^2.0"
     },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://satis.wake-app.net"
+        }
+    ],
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Wakeapp\\Bundle\\SystemStatusBundle": ""
+            "Wakeapp\\Bundle\\SystemStatusBundle\\": ""
         }
     }
 }

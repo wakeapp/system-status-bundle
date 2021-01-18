@@ -10,7 +10,7 @@ use Symfony\Component\DependencyInjection\Compiler\PassConfig;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class Wakeapp\Bundle\SystemStatusBundle extends Bundle
+class SystemStatusBundle extends Bundle
 {
     /**
      * @param ContainerBuilder $container
