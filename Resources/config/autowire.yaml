@@ -1,0 +1,17 @@
+services:
+  _defaults:
+    autowire:       true
+    autoconfigure:  true
+    public:         false
+
+  Wakeapp\Bundle\SystemStatusBundle\Manager\:
+    resource: '../../Manager/*'
+
+  Wakeapp\Bundle\SystemStatusBundle\Factory\:
+    resource: '../../Factory/*'
+
+  Wakeapp\Bundle\SystemStatusBundle\Command\:
+    resource: '../../Command/*'
+
+  Wakeapp\Bundle\SystemStatusBundle\UseCase\:
+    resource: '../../UseCase/*'
