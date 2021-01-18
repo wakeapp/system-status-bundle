@@ -12,7 +12,7 @@ use Symfony\Component\OptionsResolver\Exception\ExceptionInterface;
 
 use function sprintf;
 
-class DtoFactory
+final class DtoFactory
 {
     protected static array $providerList;
 
