@@ -1,5 +1,20 @@
+imports:
+  - {resource: autowire.yaml}
+
 services:
-  Wakeapp\Bundle\SystemStatusBundle\:
-    autoconfigure: true
+  Wakeapp\Bundle\SystemStatusBundle\Controller\StatusController:
+    public: true
+    tags:
+      - { name: 'controller.service_arguments' }
+
+  Wakeapp\Bundle\SystemStatusBundle\Service\AuthService:
     autowire: true
-    resource: '../../'
+    autoconfigure: true
+    arguments:
+      - '%system_status.api_key%'
+
+  Wakeapp\Bundle\SystemStatusBundle\Service\SystemStatusService:
+    autowire: true
+
+  Wakeapp\Bundle\SystemStatusBundle\Service\SystemStatusPartService:
+    autowire: true

@@ -7,7 +7,7 @@ namespace Wakeapp\Bundle\SystemStatusBundle\Service;
 use Wakeapp\Bundle\SystemStatusBundle\Behaviour\SystemStatusPartProviderInterface;
 use RuntimeException;
 
-class SystemStatusPartService
+final class SystemStatusPartService
 {
     /**
      * @var array

@@ -44,6 +44,15 @@ class AppKernel extends Kernel
 }
 ```
 
+Конфигурация
+------------
+
+Чтоб начать обращаться к апи бандла для получения информации о статусе компонентов, необходимо определить апи ключ (необязательно).
+```yaml
+system_status:
+    api_key: '%env(SYSTEM_STATUS_KEY)%'
+```
+
 Использование
 -------------
 
@@ -173,10 +182,33 @@ class NginxAvailabilitySystemMonitoringPartProvider implements SystemStatusPartP
 ```
 
 #### Доступные команды
-`system:status component` - запуcкает сбор данных по выбранному компоненту (в примере используется компонент `general` реализованный выше):
+`system:status component` - запускает сбор данных по выбранному компоненту (в примере используется компонент `general` реализованный выше):
 ```bash
 bin/console system:status general
 ```
+
+
+#### API
+Формат обращения:
+[host]/system/status/[component_name]?api_key=[apiKey]
+
+Формат возвращаемой информации, пример:
+```json
+{
+    "fineScore": "100",
+    "currentScore": "50",
+    "currentState": "great",
+    "component": "general",
+    "parts": {
+        "nginx.availability": {
+            "completeScore": "10",
+            "currentScore": "10",
+            "partType": "nginx.availability"
+        }
+    }
+}
+```
+
 Лицензия
 --------
 

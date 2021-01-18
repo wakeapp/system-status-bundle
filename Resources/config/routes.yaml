@@ -1,0 +1,4 @@
+system_status:
+  path: /system/status/{component}
+  controller: Wakeapp\Bundle\SystemStatusBundle\Controller\StatusController::statusAction
+  methods: GET

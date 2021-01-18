@@ -10,7 +10,7 @@ use Wakeapp\Bundle\SystemStatusBundle\Manager\SystemStatusManager;
 use RuntimeException;
 use Wakeapp\Bundle\DbalBundle\Exception\WriteDbalException;
 
-class SystemStatusService
+final class SystemStatusService
 {
     /**
      * @var SystemStatusManager

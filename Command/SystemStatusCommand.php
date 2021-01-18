@@ -12,7 +12,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\OptionsResolver\Exception\ExceptionInterface;
 use Wakeapp\Bundle\DbalBundle\Exception\WriteDbalException;
 
-class SystemStatusCommand extends Command
+final class SystemStatusCommand extends Command
 {
     /**
      * @var DtoFactory $dtoFactory
