@@ -1,0 +1,5 @@
+services:
+  SystemStatusBundle\:
+    autoconfigure: true
+    autowire: true
+    resource: '../../'
