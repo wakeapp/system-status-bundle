@@ -172,6 +172,11 @@ class NginxAvailabilitySystemMonitoringPartProvider implements SystemStatusPartP
 }
 ```
 
+#### Доступные команды
+`system:status component` - запуcкает сбор данных по выбранному компоненту (в примере используется компонент `general` реализованный выше):
+```bash
+bin/console system:status general
+```
 Лицензия
 --------
 
