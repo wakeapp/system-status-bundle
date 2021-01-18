@@ -4,14 +4,11 @@ declare(strict_types=1);
 
 namespace Wakeapp\Bundle\SystemStatusBundle\Manager;
 
-use Wakeapp\Bundle\SystemStatusBundle\Enum\SystemStateEnum;
 use Wakeapp\Bundle\DbalBundle\Exception\WriteDbalException;
 use Wakeapp\Bundle\DbalBundle\Manager\DbalManager;
 
 class SystemStatusManager extends DbalManager
 {
-    public const SYSTEM_STATE_DEFAULT = SystemStateEnum::GREAT;
-
     /**
      * @param string $component
      * @return array

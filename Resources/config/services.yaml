@@ -1,5 +1,12 @@
 services:
-  Wakeapp\Bundle\SystemStatusBundle\:
-    autoconfigure: true
+  Wakeapp\Bundle\SystemStatusBundle\Controller\StatusController:
+    public: true
+    tags:
+      - { name: 'controller.service_arguments' }
+
+  Wakeapp\Bundle\SystemStatusBundle\Service\AuthService:
     autowire: true
-    resource: '../../'
+    autoconfigure: true
+    public: true
+    arguments:
+      - '%system_status.api_key%'

@@ -44,6 +44,10 @@ class AppKernel extends Kernel
 }
 ```
 
+Конфигурация
+------------
+Чтоб начать 
+
 Использование
 -------------
 
@@ -173,7 +177,7 @@ class NginxAvailabilitySystemMonitoringPartProvider implements SystemStatusPartP
 ```
 
 #### Доступные команды
-`system:status component` - запуcкает сбор данных по выбранному компоненту (в примере используется компонент `general` реализованный выше):
+`system:status component` - запускает сбор данных по выбранному компоненту (в примере используется компонент `general` реализованный выше):
 ```bash
 bin/console system:status general
 ```
