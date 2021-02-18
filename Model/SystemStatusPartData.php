@@ -30,4 +30,36 @@ class SystemStatusPartData
         $this->completeScore = $completeScore;
         $this->currentScore = $currentScore;
     }
+
+    /**
+     * @return string
+     */
+    public function getComponent(): string
+    {
+        return $this->component;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPartType(): string
+    {
+        return $this->partType;
+    }
+
+    /**
+     * @return float
+     */
+    public function getCompleteScore(): float
+    {
+        return $this->completeScore;
+    }
+
+    /**
+     * @return float
+     */
+    public function getCurrentScore(): float
+    {
+        return $this->currentScore;
+    }
 }
