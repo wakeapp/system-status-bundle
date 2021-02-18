@@ -4,11 +4,15 @@ declare(strict_types=1);
 
 namespace Wakeapp\Bundle\SystemStatusBundle\Service;
 
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Wakeapp\Bundle\SystemStatusBundle\Behaviour\SystemStatusProviderInterface;
 use Wakeapp\Bundle\SystemStatusBundle\Enum\SystemStateEnum;
+use Wakeapp\Bundle\SystemStatusBundle\Event\SystemStatusEvent;
 use Wakeapp\Bundle\SystemStatusBundle\Manager\SystemStatusManager;
 use RuntimeException;
 use Wakeapp\Bundle\DbalBundle\Exception\WriteDbalException;
+use Wakeapp\Bundle\SystemStatusBundle\Model\SystemStatusData;
+use Wakeapp\Bundle\SystemStatusBundle\Model\SystemStatusPartData;
 
 final class SystemStatusService
 {
@@ -27,16 +31,21 @@ final class SystemStatusService
      */
     private array $systemStatusProviderPool = [];
 
+    private EventDispatcherInterface $eventDispatcher;
+
     /**
      * @param SystemStatusManager $manager
      * @param SystemStatusPartService $systemStatusPartService
+     * @param EventDispatcherInterface $eventDispatcher
      */
     public function __construct(
         SystemStatusManager $manager,
-        SystemStatusPartService $systemStatusPartService
+        SystemStatusPartService $systemStatusPartService,
+        EventDispatcherInterface $eventDispatcher
     ) {
         $this->manager = $manager;
         $this->systemStatusPartService = $systemStatusPartService;
+        $this->eventDispatcher = $eventDispatcher;
     }
 
     /**
@@ -73,22 +82,38 @@ final class SystemStatusService
             );
         }
 
-        $this->checkSystemStatus($systemStatusProvider);
+        $systemStatusData = $this->checkSystemStatus($systemStatusProvider);
+
+        $this->dispatchSystemStatusEvent($systemStatusData);
+
+    }
+
+    public function dispatchSystemStatusEvent(SystemStatusData $systemStatusData)
+    {
+        $systemStatusEvent = new SystemStatusEvent($systemStatusData);
+
+        $this->eventDispatcher->dispatch($systemStatusEvent);
     }
 
     /**
      * @param SystemStatusProviderInterface $systemStatusProvider
      *
-     * @return void
+     * @return SystemStatusData
      *
      * @throws WriteDbalException
      */
-    private function checkSystemStatus(SystemStatusProviderInterface $systemStatusProvider): void
+    private function checkSystemStatus(SystemStatusProviderInterface $systemStatusProvider): SystemStatusData
     {
         $finalCurrentScore = 0;
+
         $componentName = $systemStatusProvider->getComponentName();
         $scoreMapping = $systemStatusProvider->getScoreMapping();
         $currentState = $systemStatusProvider->getDefaultState();
+
+        $systemStatusData = new SystemStatusData(
+            $componentName
+        );
+
         $haveCritical = false;
         $paramsList = [];
 
@@ -101,6 +126,15 @@ final class SystemStatusService
                 'currentScore' => $currentScore,
                 'completeScore' => $systemStatusPart->getCompleteScore(),
             ];
+
+            $systemStatusData->addPart(
+                new SystemStatusPartData(
+                    $systemStatusPart->getComponentName(),
+                    $systemStatusPart->getPartTypeName(),
+                    $systemStatusPart->getCompleteScore(),
+                    $currentScore
+                )
+            );
 
             $finalCurrentScore += $currentScore;
 
@@ -122,11 +156,17 @@ final class SystemStatusService
             }
         }
 
+        $systemStatusData->setCurrentScore($finalCurrentScore);
+        $systemStatusData->setCurrentState($currentState);
+        $systemStatusData->setFineScore($systemStatusProvider::getFineScore());
+
         $this->manager->upsertSystemStatus(
             $componentName,
             $currentState,
             $finalCurrentScore,
             $systemStatusProvider->getFineScore()
         );
+
+        return $systemStatusData;
     }
 }
