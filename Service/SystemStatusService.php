@@ -89,18 +89,17 @@ final class SystemStatusService
         $componentName = $systemStatusProvider->getComponentName();
         $scoreMapping = $systemStatusProvider->getScoreMapping();
         $currentState = $systemStatusProvider->getDefaultState();
-        $partsProviderCount = $this->systemStatusPartService->getPartProviderCount($componentName);
         $haveCritical = false;
         $paramsList = [];
 
         $systemStatusPartList = $this->systemStatusPartService->getParts($componentName);
         foreach ($systemStatusPartList as $systemStatusPart) {
-            $currentScore = $systemStatusPart->check() / $partsProviderCount;
+            $currentScore = $systemStatusPart->check();
             $paramsList[] = [
                 'component' => $systemStatusPart->getComponentName(),
                 'partType' => $systemStatusPart->getPartTypeName(),
                 'currentScore' => $currentScore,
-                'completeScore' => $systemStatusPart->getCompleteScore() / $partsProviderCount,
+                'completeScore' => $systemStatusPart->getCompleteScore(),
             ];
 
             $finalCurrentScore += $currentScore;
