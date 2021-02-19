@@ -149,7 +149,7 @@ final class SystemStatusService
             $currentState = SystemStateEnum::CRITICAL;
         } else {
             foreach ($scoreMapping as $state => $data) {
-                if ($finalCurrentScore >= $data['limits'][1] && $finalCurrentScore < $data['limits'][0]) {
+                if ($finalCurrentScore >= $data['limits'][1] && $finalCurrentScore <= $data['limits'][0]) {
                     $currentState = $state;
                     break;
                 }
