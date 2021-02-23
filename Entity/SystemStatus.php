@@ -6,6 +6,8 @@ namespace Wakeapp\Bundle\SystemStatusBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
+use Wakeapp\Component\OrmIdGenerator\Entity\IdAwareEntityTrait;
+use Wakeapp\Component\OrmIdGenerator\Entity\IdAwareEntityInterface;
 
 /**
  * @ORM\Entity
@@ -16,9 +18,10 @@ use Gedmo\Timestampable\Traits\TimestampableEntity;
  *     }
  * )
  */
-class SystemStatus
+class SystemStatus implements IdAwareEntityInterface
 {
     use TimestampableEntity;
+    use IdAwareEntityTrait;
 
     /**
      * @var string
