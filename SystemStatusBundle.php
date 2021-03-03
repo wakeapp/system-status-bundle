@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Wakeapp\Bundle\SystemStatusBundle;
 
 use Wakeapp\Bundle\SystemStatusBundle\DependencyInjection\SystemStatusPartProviderCompilerPass;
+use Wakeapp\Bundle\SystemStatusBundle\DependencyInjection\SystemStatusPartProviderFactoryCompilesPass;
 use Wakeapp\Bundle\SystemStatusBundle\DependencyInjection\SystemStatusProviderCompilerPass;
 use Symfony\Component\DependencyInjection\Compiler\PassConfig;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -21,6 +22,12 @@ class SystemStatusBundle extends Bundle
 
         $container->addCompilerPass(
             new SystemStatusPartProviderCompilerPass(),
+            PassConfig::TYPE_BEFORE_OPTIMIZATION,
+            1
+        );
+
+        $container->addCompilerPass(
+            new SystemStatusPartProviderFactoryCompilesPass(),
             PassConfig::TYPE_BEFORE_OPTIMIZATION,
             1
         );

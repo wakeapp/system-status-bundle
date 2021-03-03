@@ -4,15 +4,22 @@ declare(strict_types=1);
 
 namespace Wakeapp\Bundle\SystemStatusBundle\Service;
 
+use Wakeapp\Bundle\SystemStatusBundle\Behaviour\SystemStatusPartProviderFactoryInterface;
 use Wakeapp\Bundle\SystemStatusBundle\Behaviour\SystemStatusPartProviderInterface;
 use RuntimeException;
+use Wakeapp\Bundle\SystemStatusBundle\Behaviour\SystemStatusProviderInterface;
 
 final class SystemStatusPartService
 {
     /**
-     * @var array
+     * @var SystemStatusPartProviderInterface[]
      */
     private array $systemStatusPartProviderPool = [];
+
+    /**
+     * @var SystemStatusPartProviderFactoryInterface[]
+     */
+    private array $systemStatusPartProviderFactoryPool = [];
 
     /**
      * @param SystemStatusPartProviderInterface $systemStatusPartProvider
@@ -25,17 +32,45 @@ final class SystemStatusPartService
     }
 
     /**
+     * @param SystemStatusPartProviderFactoryInterface $systemStatusPartProviderFactory
+     */
+    public function addFactory(SystemStatusPartProviderFactoryInterface $systemStatusPartProviderFactory): void
+    {
+        $componentName = $systemStatusPartProviderFactory->getComponentName();
+
+        $this->systemStatusPartProviderFactoryPool[$componentName] = $systemStatusPartProviderFactory;
+    }
+
+    /**
+     * @param string $componentName
+     */
+    public function getProvidersFromPool(string $componentName)
+    {
+        return $this->systemStatusPartProviderPool[$componentName] ?? [];
+    }
+
+    /**
      * @param string $componentName
      *
      * @return SystemStatusPartProviderInterface[]
      */
-    public function getParts(string $componentName): array
+    public function getParts(SystemStatusProviderInterface $statusProvider): array
     {
-        $parts = $this->systemStatusPartProviderPool[$componentName] ?? null;
+        $componentName = $statusProvider->getComponentName();
+
+        /** @var SystemStatusPartProviderFactoryInterface $factory */
+        $factory = $this->systemStatusPartProviderFactoryPool[$componentName] ?? null;
+
+        if ($factory) {
+            $parts = $factory->initParts();
+        } else {
+            $parts = $this->getProvidersFromPool($componentName);
+        }
+
         if (!$parts) {
             throw new RuntimeException(
                 strtr(
-                    'System Status Provider Poll not found for component :componentName',
+                    'System Status Provider Parts or Factory not found for component ":componentName"',
                     [
                         ':componentName' => $componentName
                     ]

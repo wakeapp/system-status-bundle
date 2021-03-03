@@ -9,6 +9,7 @@ use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
+use Wakeapp\Bundle\SystemStatusBundle\Behaviour\SystemStatusPartProviderFactoryInterface;
 use Wakeapp\Bundle\SystemStatusBundle\Behaviour\SystemStatusPartProviderInterface;
 use Wakeapp\Bundle\SystemStatusBundle\Behaviour\SystemStatusProviderInterface;
 
@@ -35,5 +36,7 @@ class SystemStatusExtension extends Extension
             ->addTag('system_status_provider');
         $container->registerForAutoconfiguration(SystemStatusPartProviderInterface::class)
             ->addTag('system_status_part_provider');
+        $container->registerForAutoconfiguration(SystemStatusPartProviderFactoryInterface::class)
+            ->addTag('system_status_part_provider_factory');
     }
 }
