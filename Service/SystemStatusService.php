@@ -158,7 +158,7 @@ final class SystemStatusService
 
         $systemStatusData->setCurrentScore($finalCurrentScore);
         $systemStatusData->setCurrentState($currentState);
-        $systemStatusData->setFineScore($systemStatusProvider::getFineScore());
+        $systemStatusData->setFineScore($systemStatusProvider->getFineScore());
 
         $this->manager->upsertSystemStatus(
             $componentName,

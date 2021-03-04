@@ -12,7 +12,7 @@ interface SystemStatusProviderInterface
     /**
      * @return array
      */
-    public static function getScoreMapping(): array;
+    public function getScoreMapping(): array;
 
     /**
      * @return string
@@ -22,5 +22,5 @@ interface SystemStatusProviderInterface
     /**
      * @return float
      */
-    public static function getFineScore(): float;
+    public function getFineScore(): float;
 }
