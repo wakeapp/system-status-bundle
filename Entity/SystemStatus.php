@@ -12,10 +12,7 @@ use Wakeapp\Component\OrmIdGenerator\Entity\IdAwareEntityInterface;
 /**
  * @ORM\Entity
  * @ORM\Table(
- *     name="SystemStatus",
- *     uniqueConstraints={
- *         @ORM\UniqueConstraint(name="componentUniq",columns={"component"})
- *     }
+ *     name="SystemStatus"
  * )
  */
 class SystemStatus implements IdAwareEntityInterface
@@ -50,6 +47,13 @@ class SystemStatus implements IdAwareEntityInterface
      * @ORM\Column(type="float", nullable=false)
      */
     private float $currentScore;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(type="boolean", nullable=false)
+     */
+    private bool $isLatest;
 
     /**
      * @return string
@@ -117,5 +121,21 @@ class SystemStatus implements IdAwareEntityInterface
     public function setCurrentScore($currentScore): void
     {
         $this->currentScore = $currentScore;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isLatest(): bool
+    {
+        return $this->isLatest;
+    }
+
+    /**
+     * @param bool $isLatest
+     */
+    public function setIsLatest(bool $isLatest): void
+    {
+        $this->isLatest = $isLatest;
     }
 }
