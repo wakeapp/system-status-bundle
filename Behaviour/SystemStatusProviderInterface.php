@@ -23,4 +23,9 @@ interface SystemStatusProviderInterface
      * @return float
      */
     public function getFineScore(): float;
+
+    /**
+     * @return bool
+     */
+    public function needDispatchEvent(): bool;
 }
