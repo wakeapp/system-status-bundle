@@ -43,7 +43,7 @@ final class SystemStatusManager extends DbalManager
         float $fineScore
     ): void {
 
-        $this->dropIsLatestSystemStatus($component);
+        $this->updateLatestSystemStatus($component);
 
         $params = [
             'currentState' => $state,
@@ -76,7 +76,7 @@ final class SystemStatusManager extends DbalManager
             ];
         }
 
-        $this->dropIsLatestSystemStatusPartList(array_unique($componentPartTypeList, SORT_REGULAR));
+        $this->updateLatestSystemStatusPartList(array_unique($componentPartTypeList, SORT_REGULAR));
 
         $this->insertBulk(
             'SystemStatusPart',
@@ -112,7 +112,7 @@ final class SystemStatusManager extends DbalManager
     /**
      * @param string $component
      */
-    public function dropIsLatestSystemStatus(string $component): void
+    public function updateLatestSystemStatus(string $component): void
     {
         $this->update(
             'SystemStatus',
@@ -129,7 +129,7 @@ final class SystemStatusManager extends DbalManager
      * @param array $whereFields
      * @throws WriteDbalException
      */
-    public function dropIsLatestSystemStatusPartList(array $componentPartTypeList): void
+    public function updateLatestSystemStatusPartList(array $componentPartTypeList): void
     {
         $this->updateBulk(
             'SystemStatusPart',
