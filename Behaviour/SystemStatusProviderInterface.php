@@ -27,5 +27,5 @@ interface SystemStatusProviderInterface
     /**
      * @return bool
      */
-    public function needDispatchEvent(): bool;
+    public function doDispatch(): bool;
 }
