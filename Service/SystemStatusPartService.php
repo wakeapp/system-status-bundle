@@ -54,10 +54,8 @@ final class SystemStatusPartService
      *
      * @return SystemStatusPartProviderInterface[]
      */
-    public function getParts(SystemStatusProviderInterface $statusProvider): array
+    public function getParts(string $componentName): array
     {
-        $componentName = $statusProvider->getComponentName();
-
         /** @var SystemStatusPartProviderFactoryInterface $factory */
         $factory = $this->systemStatusPartProviderFactoryPool[$componentName] ?? null;
 

@@ -117,7 +117,8 @@ final class SystemStatusService
         $haveCritical = false;
         $paramsList = [];
 
-        $systemStatusPartList = $this->systemStatusPartService->getParts($systemStatusProvider);
+        $systemStatusPartList = $this->systemStatusPartService->getParts($systemStatusProvider->getComponentName());
+        
         foreach ($systemStatusPartList as $systemStatusPart) {
             $currentScore = $systemStatusPart->check();
             $paramsList[] = [
