@@ -12,10 +12,7 @@ use Gedmo\Timestampable\Traits\TimestampableEntity;
 /**
  * @ORM\Entity
  * @ORM\Table(
- *     name="SystemStatusPart",
- *     uniqueConstraints={
- *         @ORM\UniqueConstraint(name="componentUniq",columns={"component", "partType"})
- *     }
+ *     name="SystemStatusPart"
  * )
  */
 class SystemStatusPart implements IdAwareEntityInterface
@@ -51,6 +48,29 @@ class SystemStatusPart implements IdAwareEntityInterface
      * @ORM\Column(type="float", nullable=false)
      */
     private float $currentScore;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(type="boolean", nullable=false)
+     */
+    private bool $isLatest;
+
+    /**
+     * @return bool
+     */
+    public function isLatest(): bool
+    {
+        return $this->isLatest;
+    }
+
+    /**
+     * @param bool $isLatest
+     */
+    public function setIsLatest(bool $isLatest): void
+    {
+        $this->isLatest = $isLatest;
+    }
 
     /**
      * @return float

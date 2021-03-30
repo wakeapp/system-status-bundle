@@ -84,8 +84,9 @@ final class SystemStatusService
 
         $systemStatusData = $this->checkSystemStatus($systemStatusProvider);
 
-        $this->dispatchSystemStatusEvent($systemStatusData);
-
+        if ($systemStatusProvider->needDispatchEvent()) {
+            $this->dispatchSystemStatusEvent($systemStatusData);
+        }
     }
 
     public function dispatchSystemStatusEvent(SystemStatusData $systemStatusData)
@@ -126,6 +127,7 @@ final class SystemStatusService
                 'partType' => $systemStatusPart->getPartTypeName(),
                 'currentScore' => $currentScore,
                 'completeScore' => $systemStatusPart->getCompleteScore(),
+                'isLatest' => true,
             ];
 
             $systemStatusData->addPart(
@@ -144,7 +146,7 @@ final class SystemStatusService
             }
         }
 
-        $this->manager->upsertSystemStatusPartList($paramsList);
+        $this->manager->insertSystemStatusPartList($paramsList);
 
         if ($haveCritical) {
             $currentState = SystemStateEnum::CRITICAL;
