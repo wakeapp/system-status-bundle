@@ -84,7 +84,7 @@ final class SystemStatusService
 
         $systemStatusData = $this->checkSystemStatus($systemStatusProvider);
 
-        if ($systemStatusProvider->needDispatchEvent()) {
+        if ($systemStatusProvider->doDispatch()) {
             $this->dispatchSystemStatusEvent($systemStatusData);
         }
     }
