@@ -15,6 +15,18 @@ services:
 
   Wakeapp\Bundle\SystemStatusBundle\Service\SystemStatusService:
     autowire: true
+    calls:
+      - 'setLogger': [ '@monolog.logger.system_status' ]
+    tags:
+      - { name: 'monolog.logger', channel: 'system_status' }
+
+  Wakeapp\Bundle\SystemStatusBundle\Command\SystemStatusCommand:
+    autowire: true
+    calls:
+      - 'setLogger': [ '@monolog.logger.system_status' ]
+    tags:
+      - { name: 'monolog.logger', channel: 'system_status' }
+      - { name: 'console.command', command: 'system:status' }
 
   Wakeapp\Bundle\SystemStatusBundle\Service\SystemStatusPartService:
     autowire: true
