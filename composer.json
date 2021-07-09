@@ -3,7 +3,7 @@
     "description": "symfony bundle provides interfaces, commands, entities for track system healthcheck",
     "type": "symfony-bundle",
     "require": {
-        "php": "^7.4",
+        "php": "^7.4 || ^8.0",
         "wakeapp/enumer": "^1.0",
         "wakeapp/dbal-enum-type": "*",
         "wakeapp/dbal-bundle": "*",
